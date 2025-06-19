@@ -43,13 +43,14 @@ body, html {
     text-decoration: underline;
 }
 .hero {
-    height: 100vh;
-    background-size: cover;
+    height: fit-content;
+    width: 100%;
+    background-size: 100% 100%;
     background-position: center;
     padding-top: 80px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-content: stretch;
+    flex-direction: column;
 }
 
 
@@ -59,4 +60,10 @@ body, html {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 30px 40px;
     border: 3px solid white;
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 20px;
 }
