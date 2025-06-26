@@ -26,3 +26,13 @@ img.addEventListener("click", function(event){
 
     avt.classList.add("avt");
 });
+
+//Skill section
+    function toggleDescription(img) {
+        const desc = img.nextElementSibling;
+        if (desc.style.display === "block") {
+            desc.style.display = "none";
+        } else {
+            desc.style.display = "block";
+        }
+    }

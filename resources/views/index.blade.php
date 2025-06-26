@@ -26,7 +26,7 @@
                     </select>
                 </li>
 
-                <li><a href="#">My Photography</a></li>
+                <li><a href="{{url('/photography.blade.php')}}">My Photography</a></li>
             </ul>
         </nav>
     </header>

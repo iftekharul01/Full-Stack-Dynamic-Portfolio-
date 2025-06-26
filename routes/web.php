@@ -37,3 +37,7 @@ Route::get('/college.blade.php', function () {
 Route::get('/university.blade.php', function () {
     return view('university');
 });
+
+Route::get('/photography.blade.php', function(){
+    return view('photography');
+});

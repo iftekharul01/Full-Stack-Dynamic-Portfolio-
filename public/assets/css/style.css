@@ -301,3 +301,46 @@ body {
 .result-card h4 {
   margin-bottom: 10px;
 }
+
+/* Skills Page */
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    max-width: 800px;
+    width: 90%;
+    gap: 30px;
+    justify-items: center;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.skill {
+    text-align: center;
+    cursor: pointer;
+}
+
+.skill img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s;
+}
+
+.skill img:hover {
+    transform: scale(1.1);
+}
+
+.skill-desc {
+    display: none;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
