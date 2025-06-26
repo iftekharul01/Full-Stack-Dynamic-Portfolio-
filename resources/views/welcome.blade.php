@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iftekharul Islam - Portfolio</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">Iftekharul Islam</div>
-            <ul class="nav-links">
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Goals</a></li>
-                <li><a href="#">Parents</a></li>
-                <li><a href="#">Achievements</a></li>
-                <li><a href="#">Education</a></li>
-                <li><a href="#">My Photography</a></li>
-            </ul>
-        </nav>
-    </header>
-
+@extends('index')
+@push('style')
+<title>Iftekharul Islam - Portfolio</title>
+@endpush
+@section('main-content')
+    
     <section class="hero">
         <div class="hero-content">
             <h1>Welcome to My <br><span>Portfolio</span></h1>
@@ -48,9 +30,4 @@
         </div>
     </div>
 </div>
-    <script>
-        const imageUrl = "{{ asset('assets/images/b.jpg') }}";
-    </script>
-    <script src="{{ asset('assets/js/script.js') }}"></script>
-</body>
-</html>
+@endsection
