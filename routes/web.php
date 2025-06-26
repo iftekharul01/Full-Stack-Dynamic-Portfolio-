@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -10,34 +10,34 @@ Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/skills.blade.php', function () {
+Route::get('/skills', function () {
     return view('skills');
 });
 
-Route::get('/goals.blade.php', function () {
+Route::get('/goals', function () {
     return view('goals');
 });
 
-Route::get('/parents.blade.php', function () {
+Route::get('/parents', function () {
     return view('parents');
 });
 
-Route::get('/achievement.blade.php', function () {
+Route::get('/achievement', function () {
     return view('achievement');
 });
 
-Route::get('/school.blade.php', function () {
+Route::get('/school', function () {
     return view('school');
 });
 
-Route::get('/college.blade.php', function () {
+Route::get('/college', function () {
     return view('college');
 });
 
-Route::get('/university.blade.php', function () {
+Route::get('/university', function () {
     return view('university');
 });
 
-Route::get('/photography.blade.php', function(){
+Route::get('/photography', function(){
     return view('photography');
 });
