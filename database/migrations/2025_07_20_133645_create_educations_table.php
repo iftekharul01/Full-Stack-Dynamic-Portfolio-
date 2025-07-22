@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('educations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->enum('type',['SSC', 'HSC', 'BSc', 'MSc', 'PhD']);
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone',20);
-            $table->json('avatar')->nullable();
-            $table->integer('student_id');
+            $table->string('institute');
+            $table->date('enrolled_year');
+            $table->date('passing_year')->nullable();
+            $table->decimal('grade',10,2);
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('educations');
     }
 };
