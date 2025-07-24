@@ -1,38 +1,76 @@
-menu = document.querySelector('.nav-links').children;
-    for(i = 0; i < menu.length; i++){
-        menu[i].addEventListener("click", function(event){
-            alert("Clicked on " + event.target.innerText);
-            console.log(event.target.innerText);
-        });
-   }
-text = document.querySelector('.text').children;
-for(i = 0; i < text.length; i++){
-    text[i].addEventListener("click", function(event){
-        alert("Clicked on " + event.target.innerText);
-        console.log(event.target.innerText);
-    });
-}
+/* ============================= typing animation ======================================== */
+var typed = new Typed(".typing", {
+    strings: ["","Web Developer", "Web Designer", "Frontend Developer", "Backend Developer", "Full Stack Developer"],
+    typeSpeed: 100,
+    BackSpeed: 60,
+    loop: true
+})
 
-img =document.getElementById("avatar");
-img.addEventListener("click", function(event){
-    username =document.getElementById("name");
-    username.innerText = "Iftekharul Islam Sahan";
-    username.style.color = "red";
-    username.style.fontSize = "30px";
-    username.style.fontWeight = "bold";
-
-    avt = document.getElementById("avatar");
-    avt.src = imageUrl;
-
-    avt.classList.add("avt");
-});
-
-//Skill section
-    function toggleDescription(img) {
-        const desc = img.nextElementSibling;
-        if (desc.style.display === "block") {
-            desc.style.display = "none";
-        } else {
-            desc.style.display = "block";
+/* ============================= aside ======================================== */
+const nav = document.querySelector(".nav"),
+    navList = nav.querySelectorAll("li"),
+    totalNavList = navList.length,
+    allSection = document.querySelectorAll(".section"),
+    totalSection = allSection.length;
+    for(let i=0; i<totalNavList; i++){
+        const a = navList[i].querySelector("a");
+        a.addEventListener("click", function(){
+            removeBackSection();
+            for( let j=0; j<totalNavList; j++){
+                if(navList[j].querySelector("a").classList.contains("active")){
+                    addBackSection(j);
+                    //allSection[j].classList.add("back-section");
+                }
+                navList[j].querySelector("a").classList.remove("active");
+            }
+            this.classList.add("active")
+            showSection(this);
+            if(window.innerWidth < 1200){
+                asideSectionTogglerBtn();
+            }
+        })
+    }
+    function removeBackSection(){
+        for( let i=0; i<totalSection; i++){
+            allSection[i].classList.remove("back-section");
         }
     }
+    function addBackSection(num){
+        allSection[num].classList.add("back-section");
+    }
+    function showSection(element){
+        for( let i=0; i<totalSection; i++){
+            allSection[i].classList.remove("active");
+            }
+        const target = element.getAttribute("href").split("#")[1];
+        document.querySelector("#" + target).classList.add("active")
+    }
+    function updateNav(element){
+        for( let i=0; i<totalNavList; i++){
+            navList[i].querySelector("a").classList.remove("active");
+            const target = element.getAttribute("href").split("#")[1];
+            if(target ===navList[i].querySelector("a").getAttribute("href").split("#")[1]){
+                 navList[i].querySelector("a").classList.add("active");
+            }
+        }
+    }
+    document.querySelector(".hire-me").addEventListener("click", function(){
+        const sectionIndex = this.getAttribute("data-section-index");
+        //console.log(sectionIndex);
+        showSection(this);
+        updateNav(this);
+        removeBackSection();
+        addBackSection(sectionIndex);
+    })
+    const navTogglerBtn = document.querySelector(".nav-toggler"),
+            aside = document.querySelector(".aside");
+            navTogglerBtn.addEventListener("click", () => {
+                asideSectionTogglerBtn();
+            })
+            function asideSectionTogglerBtn(){
+                aside.classList.toggle("open");
+                navTogglerBtn.classList.toggle("open");
+                for(let i=0; i<totalSection; i++){
+                    allSection[i].classList.toggle("open");
+                }
+            }

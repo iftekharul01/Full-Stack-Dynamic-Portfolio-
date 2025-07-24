@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('personal_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
             $table->text('description');
             $table->string('blood_group', 10);
             $table->string('department');
@@ -24,6 +24,10 @@ return new class extends Migration
             $table->text('address');
             $table->enum('gender', ['male','female','other'])->default('other');
             $table->timestamps();
+        });
+
+        Schema::table('personal_details', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
